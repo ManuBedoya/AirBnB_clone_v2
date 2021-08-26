@@ -6,8 +6,8 @@ from datetime import datetime
 import os
 
 
-
 env.hosts = ["ubuntu@34.73.252.190", "ubuntu@54.198.140.74"]
+
 
 def do_pack():
     """This method is to compress all files
@@ -18,8 +18,9 @@ def do_pack():
     try:
         comp_file = local("tar -cvzf versions/{} web_static/".format(compress))
         return "versions/{}".format(compress)
-    except:
+    except Exception as err:
         return None
+
 
 def do_deploy(archive_path):
     """Method to deploy files
@@ -37,7 +38,7 @@ def do_deploy(archive_path):
             run(command)
             run("rm /tmp/{}.tgz".format(name))
             command = "mv /data/web_static/releases/{}/".format(name)
-            command += "web_static/* /data/web_static/releases/{}/".format(name)
+            command += "web_static/* /data/web_static/releases/{}".format(name)
             run(command)
             run("rm -rf /data/web_static/releases/{}/web_static".format(name))
             run("rm -rf /data/web_static/current")
@@ -48,6 +49,7 @@ def do_deploy(archive_path):
         except Exception as err:
             print(err)
             return False
+
 
 def deploy():
     """Create to deploy
