@@ -21,6 +21,7 @@ def c_is(text):
     separate = text.split("_")
     return 'C {}'.format(' '.join(separate))
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Page to show the message HBNB
@@ -34,5 +35,6 @@ def python_is(text):
     """
     separate = text.split("_")
     return 'Python {}'.format(' '.join(separate))
+
 
 app.run(debug=True, port=5000)

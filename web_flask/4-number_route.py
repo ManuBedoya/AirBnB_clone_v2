@@ -21,6 +21,7 @@ def c_is(text):
     separate = text.split("_")
     return 'C {}'.format(' '.join(separate))
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Page to show the message HBNB
@@ -41,5 +42,6 @@ def is_number(n):
     """Page to show the message number + is a number
     """
     return '{:d} is a number'.format(n)
+
 
 app.run(debug=True, port=5000)

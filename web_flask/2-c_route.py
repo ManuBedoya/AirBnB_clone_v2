@@ -21,12 +21,12 @@ def c_is_fun(text):
     separate = text.split("_")
     return 'C {}'.format(' '.join(separate))
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Page to show the message HBNB
     """
     return 'HBNB'
-
 
 
 app.run(debug=True, port=5000)
