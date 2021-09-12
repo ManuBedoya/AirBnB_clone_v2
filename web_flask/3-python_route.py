@@ -30,7 +30,7 @@ def hbnb():
 
 
 @app.route('/python/<text>', strict_slashes=False)
-def python_is(text):
+def python_is(text="is cool"):
     """Page to show the message Python + a word or phrase in the url
     """
     separate = text.split("_")
